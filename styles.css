@@ -1,0 +1,251 @@
+/*
+=============== 
+Fonts
+===============
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+  --attribution-pink: rgba(247, 71, 128, 1);
+  --attribution-hover: rgba(255, 167, 195, 1);
+
+  /* primary colors */
+  --violet: hsl(263, 55%, 52%);
+  --gray-blue: hsl(217, 19%, 35%);
+  --dark-blue: hsl(219, 29%, 14%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-gray-blue: hsl(210, 46%, 95%);
+
+  /* neutrals */
+  --white: rgba(255, 255, 255, 1);
+  --black: rgba(21, 21, 21, 1);
+
+  /* typography */
+  --font: 'Barlow Semi Condensed', sans-serif;
+
+  --transition: all 0.3s linear;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+}
+a, a:link, a:visited, a:hover, a:active {
+text-decoration: none;
+color: inherit;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+font: inherit;
+}
+
+body {
+  font-family: var(--font);
+}
+/*
+=============== 
+Design
+===============
+*/
+h2, 
+h3, 
+h4, 
+p {
+letter-spacing: 0;
+}
+h2 {
+  font-weight: 500;
+  line-height: 13px;
+  font-size: 13px;
+}
+h3 {
+  font-weight: 500;
+  line-height: 11px;
+  font-size: 11px;
+}
+h4 {
+  font-weight: 600;
+  font-size: 20px;
+}
+p {
+  font-weight: 500;
+  line-height: 18px;
+  font-size: 13px;
+}
+
+/* Page Design */
+body {
+  background-color: var(--light-gray-blue);
+  color: var(--white);
+  position: relative;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, auto);
+  align-items: center;
+  justify-content: center;
+}
+.photo img {
+  border-radius: 100px;
+  margin-right: 1rem;
+}
+.testimonial-all {
+  border-radius: 8px;
+}
+.testimonial-one {
+  background-color: var(--violet);
+  position: relative;
+  z-index: 1000;
+}
+.border {
+  border: 2px solid #A775F1;
+}
+.quote {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  border-color: transparent;
+}
+.testimonial-two {
+  background-color: var(--gray-blue);
+}
+.testimonial-three,
+.testimonial-five {
+  background-color: var(--white);
+  color: var(--gray-blue);
+}
+.testimonial-four {
+  background-color: var(--dark-blue);
+}
+.testimonial-four img {
+  border: 2px solid var(--violet);
+}
+.user-info {  
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "photo name"
+    "photo verified";
+}
+.photo { 
+  grid-area: photo; 
+}
+.name { 
+  grid-area: name; 
+}
+.verified { 
+  grid-area: verified; 
+  opacity: 50%;
+}
+.testimonial {
+  opacity: 70%;
+}
+
+/* Mobile/Tablet Layout */
+@media screen and (max-width:1200px) {
+  .wrapper {
+    margin: 2.75rem auto;
+  }
+  .testimonial-all {
+    padding: 1.625rem 2rem 2rem;
+    margin: 1.5rem 1.5rem;
+  }
+  .testimonial-one p {
+    margin: 0 1rem 0 0;
+  }
+  .testimonial-four p {
+    margin: 0 0.75rem 0 0;
+  }
+  .title {
+    margin: 1rem 0;
+  }
+  .testimonial-one h4 {
+    margin: 1rem 0 2rem;
+  }
+  .quote {
+    right: 1.5rem;
+  }
+}
+
+/* Desktop Layout */
+@media screen and (min-width:1201px) {
+  .wrapper {
+    margin: 8.75rem 11.5vw;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 1.5rem 1.875rem; 
+    grid-template-areas: 
+      "testimonial-one testimonial-one testimonial-two testimonial-five"
+      "testimonial-three testimonial-four testimonial-four testimonial-five"; 
+  }
+  .testimonial-three { 
+    grid-area: testimonial-three; 
+  }
+  .testimonial-five { 
+    grid-area: testimonial-five; 
+  }
+  .testimonial-two { 
+    grid-area: testimonial-two; 
+  }
+  .testimonial-one { 
+    grid-area: testimonial-one; 
+  }
+  .testimonial-four { 
+    grid-area: testimonial-four; 
+  }
+  .testimonial-all {
+    height: 100%;
+    padding: 1.625rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  .testimonial-three,
+  .testimonial-four,
+  .testimonial-five {
+    padding: 1.625rem 2rem;
+  }
+  .title {
+    margin: 1rem 0;
+  }
+  .quote {
+    right: 5rem;
+  }
+}
+
+/*
+=============== 
+Active
+===============
+*/
+.attribution {
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--dark-blue);
+}
+.attribution a {
+  color: var(--violet);
+  transition: var(--transition);
+}
+.attribution a:hover {
+  color: #A775F1;
+}
